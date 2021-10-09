@@ -10,11 +10,10 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.freakbox.dragon.AssetPaths;
-import com.freakbox.dragon.DragonShmupGame;
 import com.freakbox.dragon.GameConstants;
 
 
-public class Player extends Entity {
+public class Player extends MyEntity {
 
     private float velocity = 100;
 

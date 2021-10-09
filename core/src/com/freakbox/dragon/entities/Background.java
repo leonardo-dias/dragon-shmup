@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.freakbox.dragon.AssetPaths;
 
-public class Background extends Entity {
+public class Background extends MyEntity {
 
     private TextureRegion[] tiles;
     private float tileShift;
