@@ -1,6 +1,7 @@
 package com.freakbox.dragon;
 
 import com.badlogic.ashley.core.Engine;
+import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,7 +11,7 @@ import com.freakbox.dragon.screens.GameScreen;
 public class DragonShmupGame extends Game {
 	SpriteBatch batch;
 	AssetManager assetManager;
-	final Engine engine = new Engine();
+	final PooledEngine engine = new PooledEngine();
 	
 	@Override
 	public void create () {

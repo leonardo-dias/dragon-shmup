@@ -3,13 +3,13 @@ package com.freakbox.dragon.components;
 import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.utils.Pool;
 
-public class VelocityComponent implements Component, Pool.Poolable {
-    public float x = 0.0f;
-    public float y = 0.0f;
+public class PlayerShotComponent implements Component, Pool.Poolable {
+
+    public boolean active = true;
+
 
     @Override
     public void reset() {
-        x = 0.0f;
-        y = 0.0f;
+        active = true;
     }
 }

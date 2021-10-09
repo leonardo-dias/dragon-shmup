@@ -40,7 +40,5 @@ public class Dragon extends Entity {
 
         ShadowComponent shadowComponent = new ShadowComponent();
         add(shadowComponent);
-
-
     }
 }
