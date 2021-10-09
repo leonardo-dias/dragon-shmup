@@ -3,13 +3,12 @@ package com.freakbox.dragon.screens;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.freakbox.dragon.AssetPaths;
 import com.freakbox.dragon.DragonShmupGame;
 import com.freakbox.dragon.GameConstants;
+import com.freakbox.dragon.entities.Background;
 import com.freakbox.dragon.entities.Player;
 
 public class GameScreen implements Screen {
@@ -20,6 +19,7 @@ public class GameScreen implements Screen {
     private OrthographicCamera camera;
     private Viewport viewport;
 
+    private Background background;
     private Player player;
 
     public GameScreen (DragonShmupGame game) {
@@ -35,6 +35,7 @@ public class GameScreen implements Screen {
         camera.position.set(camera.viewportWidth/2,camera.viewportHeight/2,0);
 
 
+        background = new Background(game.getAssetManager());
         player = new Player(game.getAssetManager());
         player.getBounds().setX(83);
         player.getBounds().setY(20);
@@ -57,11 +58,13 @@ public class GameScreen implements Screen {
     }
 
     private void update(float delta) {
+        background.update(delta);
         player.update(delta);
     }
 
 
     private void draw(SpriteBatch batch) {
+        background.draw(batch);
         player.draw(batch);
     }
 

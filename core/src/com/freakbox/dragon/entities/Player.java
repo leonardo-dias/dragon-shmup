@@ -3,6 +3,7 @@ package com.freakbox.dragon.entities;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -11,6 +12,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.freakbox.dragon.AssetPaths;
 import com.freakbox.dragon.DragonShmupGame;
 import com.freakbox.dragon.GameConstants;
+
 
 public class Player extends Entity {
 
@@ -52,12 +54,15 @@ public class Player extends Entity {
                 0, GameConstants.WIDTH_PIXELS - this.bounds.width);
         this.bounds.y = MathUtils.clamp(this.bounds.y,
                 0, GameConstants.HEIGHT_PIXELS - this.bounds.height);
-
-
     }
 
     @Override
     public void draw(SpriteBatch batch) {
+        batch.setColor(0, 0, 0, 0.5f);
+        batch.draw(dragonAnimation.getKeyFrame(animationTime), bounds.x - 5, bounds.y - 3 - 16, 16, 24);
+
+        batch.setColor(Color.WHITE);
+
         batch.draw(dragonAnimation.getKeyFrame(animationTime), bounds.x - 5, bounds.y - 3, 16, 24);
     }
 }

@@ -1,9 +1,30 @@
 
 images.png
-size: 64, 32
+size: 128, 64
 format: RGBA4444
 filter: Nearest, Nearest
 repeat: none
+background-tile
+  rotate: false
+  xy: 2, 28
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+background-tile1
+  rotate: false
+  xy: 36, 28
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+background-tile2
+  rotate: false
+  xy: 70, 28
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
 dragon
   rotate: false
   xy: 2, 2
@@ -11,14 +32,14 @@ dragon
   orig: 16, 24
   offset: 0, 0
   index: -1
-dragon2
+dragon1
   rotate: false
-  xy: 2, 2
+  xy: 104, 36
   size: 16, 24
   orig: 16, 24
   offset: 0, 0
   index: -1
-dragon1
+dragon2
   rotate: false
   xy: 20, 2
   size: 16, 24
@@ -30,5 +51,33 @@ dragon3
   xy: 38, 2
   size: 16, 24
   orig: 16, 24
+  offset: 0, 0
+  index: -1
+fireball1
+  rotate: false
+  xy: 56, 16
+  size: 8, 10
+  orig: 8, 10
+  offset: 0, 0
+  index: -1
+fireball2
+  rotate: false
+  xy: 56, 4
+  size: 8, 10
+  orig: 8, 10
+  offset: 0, 0
+  index: -1
+fireball3
+  rotate: false
+  xy: 66, 16
+  size: 8, 10
+  orig: 8, 10
+  offset: 0, 0
+  index: -1
+fireball4
+  rotate: false
+  xy: 66, 4
+  size: 8, 10
+  orig: 8, 10
   offset: 0, 0
   index: -1
