@@ -1,12 +1,33 @@
 
 images.png
-size: 32, 32
+size: 64, 32
 format: RGBA4444
 filter: Nearest, Nearest
 repeat: none
 dragon
   rotate: false
   xy: 2, 2
+  size: 16, 24
+  orig: 16, 24
+  offset: 0, 0
+  index: -1
+dragon2
+  rotate: false
+  xy: 2, 2
+  size: 16, 24
+  orig: 16, 24
+  offset: 0, 0
+  index: -1
+dragon1
+  rotate: false
+  xy: 20, 2
+  size: 16, 24
+  orig: 16, 24
+  offset: 0, 0
+  index: -1
+dragon3
+  rotate: false
+  xy: 38, 2
   size: 16, 24
   orig: 16, 24
   offset: 0, 0

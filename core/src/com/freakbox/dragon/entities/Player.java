@@ -2,9 +2,13 @@ package com.freakbox.dragon.entities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
+import com.freakbox.dragon.AssetPaths;
 import com.freakbox.dragon.DragonShmupGame;
 import com.freakbox.dragon.GameConstants;
 
@@ -12,15 +16,26 @@ public class Player extends Entity {
 
     private float velocity = 100;
 
-    private TextureRegion dragonTextureRegion;
+    private Animation<TextureRegion> dragonAnimation;
+    private float animationTime = 0f;
 
-    public Player(TextureRegion dragonTextureRegion) {
-        this.dragonTextureRegion = dragonTextureRegion;
+    public Player(AssetManager assetManager) {
+
+        TextureAtlas atlas = assetManager.get(AssetPaths.IMAGES_ATLAS, TextureAtlas.class);
+
+        this.dragonAnimation = new Animation<TextureRegion>(0.1f,
+                atlas.findRegion("dragon1"),
+                atlas.findRegion("dragon2"),
+                atlas.findRegion("dragon3"));
+        dragonAnimation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+
         this.bounds.set(0, 0, 6, 18);
     }
 
     @Override
     public void update(float delta) {
+        animationTime += delta;
+
         if (Gdx.input.isKeyPressed(Input.Keys.W))
             this.bounds.y += velocity * delta;
 
@@ -43,6 +58,6 @@ public class Player extends Entity {
 
     @Override
     public void draw(SpriteBatch batch) {
-        batch.draw(dragonTextureRegion, bounds.x - 5, bounds.y - 3, 16, 24);
+        batch.draw(dragonAnimation.getKeyFrame(animationTime), bounds.x - 5, bounds.y - 3, 16, 24);
     }
 }

@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.freakbox.dragon.AssetPaths;
 import com.freakbox.dragon.DragonShmupGame;
 import com.freakbox.dragon.GameConstants;
@@ -16,6 +18,7 @@ public class GameScreen implements Screen {
     private final SpriteBatch batch;
 
     private OrthographicCamera camera;
+    private Viewport viewport;
 
     private Player player;
 
@@ -26,11 +29,13 @@ public class GameScreen implements Screen {
 
     @Override
     public void show() {
-        camera = new OrthographicCamera(GameConstants.WIDTH_PIXELS, GameConstants.HEIGHT_PIXELS);
-        camera.position.set(camera.viewportWidth / 2f, camera.viewportHeight / 2f, 0);
-        camera.update();
+        camera = new OrthographicCamera();
+        viewport = new FitViewport(GameConstants.WIDTH_PIXELS, GameConstants.HEIGHT_PIXELS, camera);
+        viewport.apply();
+        camera.position.set(camera.viewportWidth/2,camera.viewportHeight/2,0);
 
-        player = new Player(game.getAssetManager().get(AssetPaths.IMAGES_ATLAS, TextureAtlas.class).findRegion("dragon"));
+
+        player = new Player(game.getAssetManager());
         player.getBounds().setX(83);
         player.getBounds().setY(20);
 
@@ -38,6 +43,8 @@ public class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        camera.update();
+
         update(delta);
 
         ScreenUtils.clear(0, 0, 0, 1);
@@ -60,6 +67,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        viewport.update(width, height);
 
     }
 
