@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.freakbox.dragon.AssetPaths;
 
-public class Background extends MyEntity {
+public class Background {
 
     private TextureRegion[] tiles;
     private float tileShift;
@@ -16,19 +16,14 @@ public class Background extends MyEntity {
     public Background(AssetManager assetManager) {
         TextureAtlas atlas = assetManager.get(AssetPaths.IMAGES_ATLAS, TextureAtlas.class);
         tiles = new TextureRegion[]{atlas.findRegion("background-tile1"), atlas.findRegion("background-tile2")};
-
-        this.bounds.set(0, 0, 144, 256);
     }
 
-
-    @Override
     public void update(float delta) {
         tileShift += velocity * delta;
         if (tileShift > TILE_SIZE * tiles.length)
-            tileShift -= TILE_SIZE  * tiles.length;
+            tileShift -= TILE_SIZE * tiles.length;
     }
 
-    @Override
     public void draw(SpriteBatch batch) {
 
         for (int i = 0; i < 5; i++)
