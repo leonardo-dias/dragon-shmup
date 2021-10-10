@@ -25,7 +25,7 @@ public class ShadowTextureRenderSystem extends EntitySystem {
     }
 
     public void addedToEngine(Engine engine) {
-        entities = engine.getEntitiesFor(Family.all(TextureComponent.class, BoundsComponent.class).get());
+        entities = engine.getEntitiesFor(Family.all(TextureComponent.class, BoundsComponent.class, ShadowComponent.class).get());
     }
 
     public void update(float deltaTime) {

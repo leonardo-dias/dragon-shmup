@@ -7,6 +7,9 @@
 	<inherits name='com.badlogic.ashley_gwt' />
 
     <inherits name='com.freakbox.dragon.GdxDefinition' />
+
+	<extend-configuration-property name="gdx.reflect.include" value="com.freakbox.dragon.components" />
+	<extend-configuration-property name="gdx.reflect.include" value="com.freakbox.dragon.entities" />
     
     <collapse-all-properties />
     

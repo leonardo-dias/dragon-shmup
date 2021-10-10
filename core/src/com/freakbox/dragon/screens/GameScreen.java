@@ -10,12 +10,14 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import com.freakbox.dragon.AssetPaths;
 import com.freakbox.dragon.DragonShmupGame;
 import com.freakbox.dragon.GameConstants;
-import com.freakbox.dragon.entities.Background;
+import com.freakbox.dragon.background.Background;
 import com.freakbox.dragon.entities.Dragon;
 import com.freakbox.dragon.systems.AnimationSystem;
 import com.freakbox.dragon.systems.MovementSystem;
+import com.freakbox.dragon.systems.PlayerCreateShotSystem;
 import com.freakbox.dragon.systems.PlayerInputSystem;
 import com.freakbox.dragon.systems.ShadowTextureRenderSystem;
+import com.freakbox.dragon.systems.TTLSystem;
 import com.freakbox.dragon.systems.TextureRenderSystem;
 
 public class GameScreen implements Screen {
@@ -46,11 +48,15 @@ public class GameScreen implements Screen {
         game.getEngine().removeAllEntities();
         game.getEngine().removeAllSystems();
         game.getEngine().addSystem(new PlayerInputSystem());
+        game.getEngine().addSystem(new PlayerCreateShotSystem(game.getAssetManager().get(AssetPaths.IMAGES_ATLAS, TextureAtlas.class)));
         game.getEngine().addSystem(new MovementSystem());
         game.getEngine().addSystem(new AnimationSystem());
         game.getEngine().addSystem(new ShadowTextureRenderSystem(game.getBatch()));
         game.getEngine().addSystem(new TextureRenderSystem(game.getBatch()));
+        game.getEngine().addSystem(new TTLSystem());
+
         game.getEngine().addEntity(new Dragon(83, 60, game.getAssetManager().get(AssetPaths.IMAGES_ATLAS, TextureAtlas.class)));
+
 
     }
 

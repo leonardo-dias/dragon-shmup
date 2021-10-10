@@ -6,6 +6,9 @@
 	<inherits name='com.badlogic.gdx.controllers.controllers-gwt' />
 	<inherits name='com.badlogic.ashley_gwt' />
 
+	<extend-configuration-property name="gdx.reflect.include" value="com.freakbox.dragon.components" />
+	<extend-configuration-property name="gdx.reflect.include" value="com.freakbox.dragon.entities" />
+
 	<inherits name='DragonShmupGame' />
 	<entry-point class='com.freakbox.dragon.client.HtmlLauncher' />
 	<set-configuration-property name='xsiframe.failIfScriptTag' value='FALSE'/>

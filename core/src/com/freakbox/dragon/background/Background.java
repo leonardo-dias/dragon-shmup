@@ -1,4 +1,4 @@
-package com.freakbox.dragon.entities;
+package com.freakbox.dragon.background;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
